@@ -27,11 +27,11 @@ const App = () => {
         .matches(/^[A-Za-z ]+$/, "Must contain only letters")
         .max(50, "Must be 50 characters or less")
         .min(2, "Must be 2 characters or more")
-        .required("Required"),
+        .required("This field cannot be empty"),
 
       identification: Yup.string()
         .matches(/^[0-9]{6,10}$/, "Must be between 6 and 10 digits")
-        .required("Required")
+        .required("This field cannot be empty")
         .test(
           "identification",
           "This identification already exists",
@@ -44,11 +44,11 @@ const App = () => {
 
       phoneNumber: Yup.string()
         .matches(/^[0-9]{10}$/, "Must be 10 numbers")
-        .required("Required"),
+        .required("This field cannot be empty"),
 
       email: Yup.string()
         .email("Invalid email address")
-        .required("Required")
+        .required("This field cannot be empty")
         .max(254, "Must be 254 characters or less")
         .min(5, "Must be 5 characters or more")
         .test("email", "This mail already exists", function (value) {
@@ -60,7 +60,7 @@ const App = () => {
       userName: Yup.string()
         .max(32, "Must be 32 characters or less")
         .min(4, "Must be 4 characters or more")
-        .required("Required")
+        .required("This field cannot be empty")
         .test("userName", "This username already exists", function (value) {
           return !Object.values(usersMockData).some(
             (usersMockData) => usersMockData.userName === value
@@ -70,7 +70,7 @@ const App = () => {
       password: Yup.string()
         .max(64, "Must be 64 characters or less")
         .min(8, "Must be 8 characters or more")
-        .required("Required")
+        .required("This field cannot be empty")
         .matches(
           /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\d\s])(?!.*\s).{8,}$/,
           "Must include at least one uppercase letter, one lowercase letter, one number, and one symbol"
@@ -78,7 +78,7 @@ const App = () => {
 
       confirmPassword: Yup.string()
         .oneOf([Yup.ref("password"), null], "Passwords must match")
-        .required("Required"),
+        .required("This field cannot be empty"),
     }),
 
     onSubmit: () => {
