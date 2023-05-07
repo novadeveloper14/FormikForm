@@ -1,0 +1,32 @@
+form {
+  margin: auto auto 100px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+form div {
+  width: 100%;
+}
+
+.style-text {
+  margin-left: 16px;
+}
+
+form img {
+  width: 25%;
+  margin: auto;
+}
+
+.success-message {
+  position: fixed;
+  background-color: rgb(10, 148, 10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+  height: 10px;
+  width: 200px;
+  bottom: 50px;
+  right: 50px;
+}
